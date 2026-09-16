@@ -118,8 +118,8 @@ function FeaturedCard({ p, wide }: { p: Project; wide?: boolean }) {
               ))}
             </dl>
             <p className="text-[0.78rem] leading-relaxed text-fg-muted">
-              Then it ran on a real repository and found one genuine bug in eleven candidates. The gap was in the benchmark, not the model — and
-              the writeup says so.
+              Then it ran on a real repository and found one genuine bug in eleven candidates. The gap turned out to be in the benchmark rather than
+              the model, and the writeup says so.
             </p>
           </div>
         )}

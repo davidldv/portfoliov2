@@ -172,7 +172,7 @@ export const edges: MapEdge[] = [
     threat: "Forged or algorithm-confused token accepted as a valid identity.",
     ifMissing: "alg=none or HS/RS confusion lets anyone write their own claims.",
     control: "Pinned EdDSA verification, claims validated",
-    controlDetail: "The verifier only accepts Ed25519 signatures under the server's key — the alg header is never trusted — and iss, aud and exp are mandatory. Access tokens are short-lived; refresh handles the rest.",
+    controlDetail: "The verifier only accepts Ed25519 signatures under the server's key (the alg header is never trusted), and iss, aud and exp are mandatory. Access tokens are short-lived; refresh handles the rest.",
   },
   {
     id: "csrf",

@@ -12,7 +12,7 @@ export function AttackSurface() {
           eyebrow="Attack surface"
           heading={
             <>
-              A threat model you can <span className="serif-italic text-accent">poke at</span>, not a slide.
+              A threat model you can <span className="serif-italic text-accent">poke at</span>.
             </>
           }
           intro="The auth and realtime layer of PairCode, laid out by trust zone. Attacker view shows what crosses each boundary; defender view shows what stops it. Drag things around."

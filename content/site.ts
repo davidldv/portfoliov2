@@ -50,7 +50,7 @@ export const hero = {
     { text: "and write the tools that", em: false },
     { text: "attack them.", em: true },
   ],
-  sub: "authzscan finds IDOR/BOLA in Next.js codebases and publishes its own false-positive rate. Two more labs cover JWT internals and LLM/MCP attack surfaces. Everything here was built, then broken, then fixed.",
+  sub: "authzscan finds IDOR/BOLA in Next.js codebases and publishes its own false-positive rate. Two labs cover JWT internals and LLM/MCP attack surfaces. Everything on this page is something I built and then attacked, and the fixes are in the repos.",
   primaryCta: { label: "See the work", href: "#work" },
   secondaryCta: { label: "Resume", href: site.resumeHref },
   hud: [
@@ -62,7 +62,7 @@ export const hero = {
 
 export const proof = {
   lead:
-    "Most of my work sits where authentication, sessions, tokens and authorization meet real code. I attack it first, then fix what I found, then automate the attack so it never comes back.",
+    "Most of my work sits where authentication, sessions, tokens and authorization meet real code. I attack that code, fix what breaks, and turn the attack into a test so it stays fixed.",
   metrics: [
     { value: 16, suffix: "/16", label: "Seeded IDOR/BOLA bugs found", note: "100% recall, 100% precision on the authzscan benchmark" },
     { value: 6, suffix: "/6", label: "False-positive traps ignored", note: "Correctly authorized twins left unflagged" },
@@ -92,11 +92,11 @@ export const projects: Project[] = [
     name: "authzscan",
     tagline: "IDOR/BOLA review that runs itself, on Claude agents",
     description:
-      "An automated pentest of authorization logic in Next.js App Router repos. Agents follow every client-controlled identifier to the database query it reaches and flag the ownership checks nobody wrote. It is the top OWASP risk, and pattern-matching SAST mostly cannot see it.",
+      "An automated review of authorization logic in Next.js App Router repos. Agents follow each client-controlled identifier to the database query it reaches and flag the ones with no ownership check. It is the top OWASP risk, and pattern-matching SAST mostly cannot see it.",
     highlights: [
       "Four phases: a deterministic endpoint inventory with ts-morph (route handlers, Server Actions, auth-library detection), an agent trace pass, an adversarial verify pass whose whole job is killing false positives, and reports in Markdown, SARIF or JSON with exit codes CI can gate on.",
-      "The accuracy is a number, not a feeling: a seeded benchmark of 16 IDOR/BOLA bugs plus 6 correctly written twins as false-positive traps, recall and precision gates, and an oracle runner that proves the harness scores right regardless of how good the model is.",
-      "It fails loudly. An endpoint it could not analyze is reported as not analyzed, never as clean.",
+      "Accuracy is measured against a seeded benchmark of 16 IDOR/BOLA bugs plus 6 correctly written twins as false-positive traps, recall and precision gates, and an oracle runner that proves the harness scores correctly regardless of how good the model is.",
+      "An endpoint it could not analyze is reported as not analyzed rather than clean.",
     ],
     tags: ["TypeScript", "ts-morph", "Claude Agent SDK", "SARIF", "Next.js"],
     repo: "https://github.com/davidldv/authzscan",
@@ -127,7 +127,7 @@ export const projects: Project[] = [
       "Two FastAPI services with the same RAG surface: one left vulnerable on purpose, one hardened. Every attack in the suite works on the first and fails on the second.",
     highlights: [
       "Five scenarios as a pytest attack suite: cross-tenant retrieval leak (confused deputy), indirect prompt injection through retrieved documents, vector-store poisoning via forged ingest metadata, excessive agency over a real MCP tool server, and stored XSS straight out of the model.",
-      "Excessive agency is stopped with a deny-by-default authorization hook on the host side, so every MCP tool call is authorized before dispatch. A deterministic mock LLM makes “every attack fails against the secure API” something CI can rely on.",
+      "Excessive agency is stopped with a deny-by-default authorization hook on the host side, so every MCP tool call is authorized before dispatch. A deterministic mock LLM means CI can check that every attack fails against the secure API.",
     ],
     tags: ["Python", "FastAPI", "MCP", "RAG", "pytest"],
     repo: "https://github.com/davidldv/llmseclab",
@@ -153,7 +153,7 @@ export const projects: Project[] = [
     name: "Materiales La Bodega",
     tagline: "Solo-built e-commerce platform, live in production",
     description:
-      "A live storefront for a family-owned hardware retailer moving roughly $1.5M COP a day. Real customers, real payments, and nobody else to call when it breaks.",
+      "A live storefront for a family-owned hardware retailer that moves roughly $1.5M COP a day. Real customers pay real money through it, and when it breaks I am the only one who can fix it.",
     highlights: [
       "Authentication, session security and RBAC that keep the staff side separate from the customer side, with Mercado Pago wired up for live transactions.",
       "Hardened against the OWASP Top 10: parameterized queries, server-side validation, CSRF protection on anything that changes state, least-privilege database roles.",
@@ -181,8 +181,8 @@ export const about = {
   eyebrow: "About",
   heading: "Security engineer who still ships the feature.",
   paragraphs: [
-    "I'm an application security engineer from Pereira, Colombia, with a full-stack background: React and Next.js on the front, Node, TypeScript and PostgreSQL on the back. I spend more time than most engineers on the point where code that works correctly is still a security problem.",
-    "That means threat modeling a feature before it ships, keeping the OWASP Top 10 as the baseline, and testing my own work by attacking it. I train on Hack The Box, TryHackMe and the PortSwigger Web Security Academy, because it is hard to defend against an attack you have never run yourself.",
+    "I'm an application security engineer from Pereira, Colombia, with a full-stack background: React and Next.js on the front, Node, TypeScript and PostgreSQL on the back. I spend more of my time than most engineers on code that works correctly and is still a security problem.",
+    "In practice that means threat modeling a feature before it ships and attacking my own work before anyone else can, with the OWASP Top 10 as the baseline. I practice on Hack The Box, TryHackMe and the PortSwigger Web Security Academy, since I find it hard to defend against an attack I have never run myself.",
     "The part I'm most interested in right now is securing applications with an LLM inside them. Retrieval, tool calls and agents add attack surface that traditional web security does not cover, and most teams are shipping it anyway.",
   ],
   facts: [
@@ -255,7 +255,7 @@ export const timeline: TimelineEntry[] = [
     title: "authzscan on real code",
     org: "Writeup",
     kind: "shipped",
-    description: "Pointed the scanner at a real open-source repo after a 100% benchmark score. One genuine bug in eleven candidates; the gap was in the benchmark, not the model.",
+    description: "Pointed the scanner at a real open-source repo after a 100% benchmark score. One genuine bug in eleven candidates. The gap turned out to be in the benchmark rather than the model.",
     href: "/writeups/authzscan-first-real-repository",
   },
   {
@@ -301,7 +301,7 @@ export const timeline: TimelineEntry[] = [
     title: "Full-Stack Development Bootcamp",
     org: "EliteStack · Pereira",
     kind: "education",
-    description: "Linux/CLI, TypeScript, Node.js, Docker, REST, WebSockets, Next.js, AWS. Where the pieces of a production system first fit together.",
+    description: "Linux/CLI, TypeScript, Node.js, Docker, REST, WebSockets, Next.js, AWS. The first time the pieces of a production system fit together for me.",
   },
   {
     date: "Feb 2022 – present",
