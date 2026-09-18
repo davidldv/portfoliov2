@@ -174,15 +174,6 @@
     text-wrap: pretty;
   }
 
-  /* When the custom cursor is active we hide the native one on fine pointers only. */
-  html[data-cursor="custom"] {
-    cursor: none;
-  }
-  html[data-cursor="custom"] a,
-  html[data-cursor="custom"] button,
-  html[data-cursor="custom"] [role="button"] {
-    cursor: none;
-  }
 }
 
 /* ─── Reusable primitives (kept tiny on purpose) ─────────── */

@@ -54,7 +54,7 @@ function StretchedLink({ p }: { p: Project }) {
 
 function FeaturedCard({ p, wide }: { p: Project; wide?: boolean }) {
   return (
-    <SpotlightCard as="article" className={cn("flex flex-col", wide && "lg:col-span-2")} data-cursor-label="Open">
+    <SpotlightCard as="article" className={cn("flex flex-col", wide && "lg:col-span-2")}>
       <StretchedLink p={p} />
       <div className={cn("flex flex-1 flex-col gap-6 p-6 sm:p-8", wide && "lg:grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-10")}>
         <div className="flex flex-col gap-5">
@@ -130,7 +130,7 @@ function FeaturedCard({ p, wide }: { p: Project; wide?: boolean }) {
 
 function CompactCard({ p }: { p: Project }) {
   return (
-    <SpotlightCard as="article" className="flex flex-col" data-cursor-label="Open">
+    <SpotlightCard as="article" className="flex flex-col">
       <StretchedLink p={p} />
       <div className="flex flex-1 flex-col gap-4 p-6">
         <span className="eyebrow">{KIND_LABEL[p.kind]}</span>

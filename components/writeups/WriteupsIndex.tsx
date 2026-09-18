@@ -38,7 +38,7 @@ export function WriteupsIndex({ writeups, categories }: Props) {
     <div className="flex flex-col gap-16">
       {/* Latest */}
       <Reveal y={32}>
-        <SpotlightCard as="article" className="group" data-cursor-label="Read">
+        <SpotlightCard as="article" className="group">
           <Link href={`/writeups/${featured.slug}`} className="grid gap-8 p-6 sm:p-9 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-14">
             <div className="flex flex-col gap-5">
               <div className="flex flex-wrap items-center gap-3 font-mono text-[0.7rem] text-fg-muted">
@@ -165,7 +165,7 @@ export function WriteupsIndex({ writeups, categories }: Props) {
             >
               <Link
                 href={`/writeups/${w.slug}`}
-                data-cursor-label="Read"
+               
                 className="grid gap-4 py-7 transition-colors md:grid-cols-[8.5rem_minmax(0,1fr)_11rem] md:gap-10"
               >
                 <div className="flex flex-row items-center gap-3 font-mono text-[0.72rem] text-fg-dim md:flex-col md:items-start md:gap-1.5">

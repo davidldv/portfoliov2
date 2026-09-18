@@ -43,3 +43,6 @@ next-env.d.ts
 
 # chat attachments saved by the Claude desktop app
 /Claude outputs/
+
+# impeccable critique snapshots (local tooling)
+.impeccable/

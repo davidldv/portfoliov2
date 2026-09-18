@@ -43,31 +43,24 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  eyebrow: "Application Security · Offensive tooling · Secure by construction",
   /** Rendered as three lines; `em` gets the serif italic treatment. */
   headline: [
     { text: "I ship production systems", em: false },
     { text: "and write the tools that", em: false },
     { text: "attack them.", em: true },
   ],
+  /** The four facts a recruiter needs in ten seconds, readable, right under the headline. */
+  status: [
+    ["Application security", "Pereira, Colombia (UTC−5)"],
+    ["Remote US / EU / LATAM or relocation", "Available now"],
+  ],
   sub: "authzscan finds IDOR/BOLA in Next.js codebases and publishes its own false-positive rate. Two labs cover JWT internals and LLM/MCP attack surfaces. Everything on this page is something I built and then attacked, and the fixes are in the repos.",
   primaryCta: { label: "See the work", href: "#work" },
   secondaryCta: { label: "Resume", href: site.resumeHref },
   hud: [
-    { label: "authzscan benchmark", value: "16/16", note: "recall · 0 false positives" },
+    { label: "authzscan on the seeded benchmark", value: "16/16", note: "recall · 0 false positives" },
+    { label: "authzscan on a real repository", value: "1/11", note: "candidates confirmed · the gap was in the benchmark" },
     { label: "JWT flaws reproduced", value: "5", note: "alg=none → kid injection" },
-    { label: "OWASP LLM attacks", value: "5", note: "against a live MCP server" },
-  ],
-} as const;
-
-export const proof = {
-  lead:
-    "Most of my work sits where authentication, sessions, tokens and authorization meet real code. I attack that code, fix what breaks, and turn the attack into a test so it stays fixed.",
-  metrics: [
-    { value: 16, suffix: "/16", label: "Seeded IDOR/BOLA bugs found", note: "100% recall, 100% precision on the authzscan benchmark" },
-    { value: 6, suffix: "/6", label: "False-positive traps ignored", note: "Correctly authorized twins left unflagged" },
-    { value: 5, suffix: "", label: "JWT vulnerabilities rebuilt", note: "From-scratch sign/verify, no libraries" },
-    { value: 5, suffix: "", label: "OWASP LLM Top 10 attacks", note: "As a pytest suite against a hardened mirror" },
   ],
 } as const;
 
@@ -98,7 +91,7 @@ export const projects: Project[] = [
       "Accuracy is measured against a seeded benchmark of 16 IDOR/BOLA bugs plus 6 correctly written twins as false-positive traps, recall and precision gates, and an oracle runner that proves the harness scores correctly regardless of how good the model is.",
       "An endpoint it could not analyze is reported as not analyzed rather than clean.",
     ],
-    tags: ["TypeScript", "ts-morph", "Claude Agent SDK", "SARIF", "Next.js"],
+    tags: ["TypeScript", "ts-morph", "Anthropic SDK", "SARIF", "Next.js"],
     repo: "https://github.com/davidldv/authzscan",
     kind: "tool",
     featured: true,
@@ -221,7 +214,7 @@ export const skills = [
   {
     id: "ai",
     title: "AI & LLM security",
-    items: ["Claude Agent SDK", "MCP servers", "RAG pipelines", "LLM guardrails", "Agent evals & benchmarks", "SSE streaming"],
+    items: ["Anthropic SDK", "MCP servers", "RAG pipelines", "LLM guardrails", "Agent evals & benchmarks", "SSE streaming"],
   },
   {
     id: "backend",
@@ -338,7 +331,11 @@ export const contact = {
     message: "Message",
     submit: "Send message",
     sending: "Sending…",
+    idle: "Usually answered within a day.",
+    incomplete: "Name, email and message are all needed.",
     sent: "Sent. I'll reply within a day.",
-    error: "Something went wrong. Email me directly instead.",
+    error: "The message didn't go through. Email me directly:",
+    noBackend: "The contact form is off right now. Email works, and I usually answer within a day.",
+    emailInstead: "Write to me",
   },
 } as const;

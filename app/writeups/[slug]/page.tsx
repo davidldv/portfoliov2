@@ -150,7 +150,7 @@ export default async function WriteupPage({ params }: PageProps<"/writeups/[slug
                 <nav aria-label="More writeups" className="mt-10 grid gap-4 sm:grid-cols-2">
                   {prev ? (
                     <SpotlightCard className="flex">
-                      <Link href={`/writeups/${prev.slug}`} className="group flex w-full flex-col gap-2 p-5" data-cursor-label="Read">
+                      <Link href={`/writeups/${prev.slug}`} className="group flex w-full flex-col gap-2 p-5">
                         <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-fg-dim">
                           <ArrowLeft className="h-3 w-3 transition-transform duration-300 group-hover:-translate-x-0.5" aria-hidden />
                           Older
@@ -166,7 +166,7 @@ export default async function WriteupPage({ params }: PageProps<"/writeups/[slug
                   )}
                   {next && (
                     <SpotlightCard className="flex">
-                      <Link href={`/writeups/${next.slug}`} className="group flex w-full flex-col items-end gap-2 p-5 text-right" data-cursor-label="Read">
+                      <Link href={`/writeups/${next.slug}`} className="group flex w-full flex-col items-end gap-2 p-5 text-right">
                         <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-fg-dim">
                           Newer
                           <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" aria-hidden />

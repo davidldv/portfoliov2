@@ -32,7 +32,7 @@ export async function Writing() {
             <li key={w.slug} className="group border-b border-border">
               <Link
                 href={`/writeups/${w.slug}`}
-                data-cursor-label="Read"
+               
                 className="grid gap-3 py-6 transition-colors duration-300 md:grid-cols-[7rem_minmax(0,1fr)_auto] md:items-baseline md:gap-8"
               >
                 <span className="font-mono text-[0.72rem] text-fg-dim">

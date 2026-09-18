@@ -36,7 +36,25 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   async headers() {
-    return [{ source: "/(.*)", headers: securityHeaders }];
+    return [
+      { source: "/(.*)", headers: securityHeaders },
+      // The static authzscan overview (public/authzscan/index.html) loads Google Fonts.
+      {
+        source: "/authzscan/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: csp
+              .replace("style-src 'self' 'unsafe-inline'", "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com")
+              .replace("font-src 'self' data:", "font-src 'self' data: https://fonts.gstatic.com"),
+          },
+        ],
+      },
+    ];
+  },
+  // The resumes link to /authzscan; Next does not serve a folder's index.html on its own.
+  async rewrites() {
+    return [{ source: "/authzscan", destination: "/authzscan/index.html" }];
   },
 };
 

@@ -5,7 +5,6 @@ import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useThemeAttr } from "@/lib/hooks";
-import { Cursor } from "@/components/layout/Cursor";
 
 /* ───────────────────────────── Theme ───────────────────────────── */
 
@@ -88,7 +87,6 @@ export function Providers({ children }: { children: ReactNode }) {
     <ThemeContext.Provider value={themeValue}>
       <LenisContext.Provider value={lenisRef}>
         {children}
-        <Cursor />
       </LenisContext.Provider>
     </ThemeContext.Provider>
   );
