@@ -32,13 +32,13 @@ export default async function Image() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18, fontFamily: "Geist Mono", fontSize: 22, color: "#9a9ca6", letterSpacing: 4 }}>
           <div style={{ width: 40, height: 2, background: "#7cb1ff" }} />
-          APPLICATION SECURITY · OFFENSIVE TOOLING
+          AI-NATIVE FULL-STACK · BUILT WITH AGENTS
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", fontSize: 68, lineHeight: 1.06, letterSpacing: -2.5 }}>
           <div>I ship production systems</div>
-          <div>and write the tools that</div>
-          <div style={{ fontFamily: "Instrument Serif", fontStyle: "italic", color: "#7cb1ff", letterSpacing: -0.5, fontSize: 74 }}>attack them.</div>
+          <div>and run the agents that</div>
+          <div style={{ fontFamily: "Instrument Serif", fontStyle: "italic", color: "#7cb1ff", letterSpacing: -0.5, fontSize: 74 }}>build them.</div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
@@ -49,8 +49,8 @@ export default async function Image() {
           <div style={{ display: "flex", gap: 14 }}>
             {[
               ["16/16", "authzscan benchmark"],
-              ["5", "JWT flaws rebuilt"],
-              ["5", "OWASP LLM attacks"],
+              ["647", "endpoints inventoried"],
+              ["15 min", "deploys at Tambora"],
             ].map(([v, l]) => (
               <div
                 key={l}

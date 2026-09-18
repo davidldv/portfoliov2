@@ -17,7 +17,7 @@ export async function Writing() {
             eyebrow="Writing"
             heading={
               <>
-                Writeups that show the <span className="serif-italic text-accent">whole</span> attack, including the parts that failed.
+                Writeups that show the <span className="serif-italic text-accent">whole</span> build, including the parts that failed.
               </>
             }
           />

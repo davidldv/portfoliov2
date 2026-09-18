@@ -6,7 +6,7 @@ import { WriteupsIndex } from "@/components/writeups/WriteupsIndex";
 
 export const metadata: Metadata = {
   title: "Writeups",
-  description: "Security writeups: agent-driven IDOR detection, JWT attacks, scanner engineering and AppSec research, with the parts that failed left in.",
+  description: "Writeups on building with coding agents, agent-driven code review, JWT attacks and scanner engineering, with the parts that failed left in.",
   alternates: { canonical: "/writeups" },
 };
 
@@ -35,7 +35,7 @@ export default async function WriteupsPage() {
                 Notes from <span className="serif-italic text-accent">breaking</span> things, then fixing them.
               </>
             }
-            intro="How the attacks work, how I stopped them, and what my own tools got wrong. Benchmarks and dead ends included."
+            intro="How the systems were built, how the tools were measured, and what my own tools got wrong. Benchmarks and dead ends included."
           />
           <Reveal stagger={0.08} className="grid shrink-0 grid-cols-3 gap-px overflow-hidden rounded-[var(--radius-lg)] border border-border bg-border">
             {[

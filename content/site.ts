@@ -7,15 +7,15 @@ export const site = {
   name: "David Londoño",
   shortName: "David",
   handle: "davidldv",
-  role: "Application Security Engineer",
+  role: "AI-Native Full-Stack Engineer",
   location: "Pereira, Colombia",
   timezone: "America/Bogota",
   email: "dlondon.dev@gmail.com",
   url: "https://davidlondon.dev",
-  resumeHref: "/David-Londono-Security.pdf",
+  resumeHref: "/David-Londono-AI-FullStack.pdf",
   description:
-    "Application Security Engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I write the tools that attack them.",
-  availability: "Open to remote AppSec & security engineering roles · US / EU / LATAM",
+    "AI-native full-stack engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I build them with coding agents that work from a written architecture and spec.",
+  availability: "Open to remote full-stack & AI engineering roles · US / EU / LATAM",
   languages: [
     { code: "ES", level: "Native" },
     { code: "EN", level: "C1" },
@@ -46,21 +46,21 @@ export const hero = {
   /** Rendered as three lines; `em` gets the serif italic treatment. */
   headline: [
     { text: "I ship production systems", em: false },
-    { text: "and write the tools that", em: false },
-    { text: "attack them.", em: true },
+    { text: "and run the agents that", em: false },
+    { text: "build them.", em: true },
   ],
   /** The four facts a recruiter needs in ten seconds, readable, right under the headline. */
   status: [
-    ["Application security", "Pereira, Colombia (UTC−5)"],
+    ["AI-native full-stack", "Pereira, Colombia (UTC−5)"],
     ["Remote US / EU / LATAM or relocation", "Available now"],
   ],
-  sub: "authzscan finds IDOR/BOLA in Next.js codebases and publishes its own false-positive rate. Two labs cover JWT internals and LLM/MCP attack surfaces. Everything on this page is something I built and then attacked, and the fixes are in the repos.",
+  sub: "Ghost AI turns a plain-English description of a system into a shared canvas that exports as a Markdown spec. authzscan sends agents through an existing Next.js codebase to review its authorization logic and publishes its own accuracy. Both were built from a written architecture and spec, with agents doing most of the typing.",
   primaryCta: { label: "See the work", href: "#work" },
   secondaryCta: { label: "Resume", href: site.resumeHref },
   hud: [
     { label: "authzscan on the seeded benchmark", value: "16/16", note: "recall · 0 false positives" },
     { label: "authzscan on a real repository", value: "1/11", note: "candidates confirmed · the gap was in the benchmark" },
-    { label: "JWT flaws reproduced", value: "5", note: "alg=none → kid injection" },
+    { label: "Deploy time at Tambora", value: "15", note: "minutes, down from two hours over SSH · Azure CI/CD" },
   ],
 } as const;
 
@@ -81,15 +81,31 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "ghost-ai",
+    name: "Ghost AI",
+    tagline: "A team describes a system, an agent draws it, the graph exports as a spec",
+    description:
+      "A real-time workspace where a team describes a system in plain English, an agent lays it onto a shared canvas, and the final graph exports as a Markdown spec you can hand to an implementation pipeline.",
+    highlights: [
+      "Next.js, Liveblocks for presence and shared state, React Flow for the canvas, Prisma and PostgreSQL underneath. The agent runs on the Vercel AI SDK with Gemini and edits the graph through structured mutations instead of free-form text. Templates give a new project a starting graph.",
+      "Built from four context files (project overview, architecture, code standards, progress tracker) that every coding session starts from. The writeup covers the workflow.",
+    ],
+    tags: ["Next.js", "Liveblocks", "React Flow", "Vercel AI SDK", "Prisma"],
+    href: "https://ghost-aildv.vercel.app/",
+    repo: "https://github.com/davidldv/ghost-ai",
+    kind: "product",
+    featured: true,
+  },
+  {
     slug: "authzscan",
     name: "authzscan",
-    tagline: "IDOR/BOLA review that runs itself, on Claude agents",
+    tagline: "Agents that review an existing Next.js codebase for authorization bugs",
     description:
-      "An automated review of authorization logic in Next.js App Router repos. Agents follow each client-controlled identifier to the database query it reaches and flag the ones with no ownership check. It is the top OWASP risk, and pattern-matching SAST mostly cannot see it.",
+      "An automated review of authorization logic in Next.js App Router repos. Agents follow each client-controlled identifier to the database query it reaches and flag the ones with no ownership check. Pattern-matching SAST mostly cannot see this class of bug; an agent that reads the code can, and the benchmark says how far to trust it.",
     highlights: [
       "Four phases: a deterministic endpoint inventory with ts-morph (route handlers, Server Actions, auth-library detection), an agent trace pass, an adversarial verify pass whose whole job is killing false positives, and reports in Markdown, SARIF or JSON with exit codes CI can gate on.",
       "Accuracy is measured against a seeded benchmark of 16 IDOR/BOLA bugs plus 6 correctly written twins as false-positive traps, recall and precision gates, and an oracle runner that proves the harness scores correctly regardless of how good the model is.",
-      "An endpoint it could not analyze is reported as not analyzed rather than clean.",
+      "An endpoint it could not analyze is reported as not analyzed rather than clean. The inventory has run on repos of up to about 3,000 files and 647 endpoints.",
     ],
     tags: ["TypeScript", "ts-morph", "Anthropic SDK", "SARIF", "Next.js"],
     repo: "https://github.com/davidldv/authzscan",
@@ -98,33 +114,18 @@ export const projects: Project[] = [
     benchmark: { found: 16, seeded: 16, twins: 6, twinsFlagged: 0 },
   },
   {
-    slug: "jwt-lab",
-    name: "JWT Security Lab + jwt-scan",
-    tagline: "A JWT lab with a broken half and a fixed half, shipped as an npm scanner",
+    slug: "la-bodega",
+    name: "Materiales La Bodega",
+    tagline: "Solo-built e-commerce platform, live in production",
     description:
-      "Two versions of the same API, one vulnerable and one hardened. Every attack lands on the first and bounces off the second, so you can run the fixes instead of taking my word for them. The detection logic ships as jwt-scan, an npm CLI.",
+      "A live storefront for a family-owned hardware retailer that moves roughly $1.5M COP a day. Real customers pay real money through it, and when it breaks I am the only one who can fix it.",
     highlights: [
-      "JWT signing and verification written from scratch in TypeScript, no libraries, reproducing five flaws that reach production: alg=none bypass, HS256/RS256 key confusion, weak-secret brute force, kid header injection, and missing iss/aud/exp validation.",
-      "jwt-scan has token and live-endpoint modes with CI-friendly exit codes. The hardened mirror removes whole classes of bug at once: one allowed algorithm (RS256), a fixed kid registry with rotation, generic errors so nothing leaks through an oracle, scrypt for passwords.",
+      "Authentication, session security and RBAC that keep the staff side separate from the customer side, with Mercado Pago wired up for live transactions.",
+      "Hardened against the OWASP Top 10: parameterized queries, server-side validation, CSRF protection on anything that changes state, least-privilege database roles.",
     ],
-    tags: ["TypeScript", "Node.js", "OpenSSL", "Docker", "npm CLI"],
-    repo: "https://github.com/davidldv/jwtsecuritylab",
-    kind: "lab",
-    featured: true,
-  },
-  {
-    slug: "llmseclab",
-    name: "LLM/RAG Security Lab",
-    tagline: "OWASP LLM Top 10, attack side and defense side",
-    description:
-      "Two FastAPI services with the same RAG surface: one left vulnerable on purpose, one hardened. Every attack in the suite works on the first and fails on the second.",
-    highlights: [
-      "Five scenarios as a pytest attack suite: cross-tenant retrieval leak (confused deputy), indirect prompt injection through retrieved documents, vector-store poisoning via forged ingest metadata, excessive agency over a real MCP tool server, and stored XSS straight out of the model.",
-      "Excessive agency is stopped with a deny-by-default authorization hook on the host side, so every MCP tool call is authorized before dispatch. A deterministic mock LLM means CI can check that every attack fails against the secure API.",
-    ],
-    tags: ["Python", "FastAPI", "MCP", "RAG", "pytest"],
-    repo: "https://github.com/davidldv/llmseclab",
-    kind: "lab",
+    tags: ["Next.js", "PostgreSQL", "Mercado Pago", "RBAC"],
+    href: "https://materialeslabodega.com.co",
+    kind: "product",
     featured: true,
   },
   {
@@ -142,89 +143,90 @@ export const projects: Project[] = [
     kind: "product",
   },
   {
-    slug: "la-bodega",
-    name: "Materiales La Bodega",
-    tagline: "Solo-built e-commerce platform, live in production",
+    slug: "jwt-lab",
+    name: "JWT Security Lab + jwt-scan",
+    tagline: "A JWT lab with a broken half and a fixed half, shipped as an npm scanner",
     description:
-      "A live storefront for a family-owned hardware retailer that moves roughly $1.5M COP a day. Real customers pay real money through it, and when it breaks I am the only one who can fix it.",
+      "Two versions of the same API, one vulnerable and one hardened. Every attack lands on the first and bounces off the second, so you can run the fixes instead of taking my word for them. The detection logic ships as jwt-scan, an npm CLI.",
     highlights: [
-      "Authentication, session security and RBAC that keep the staff side separate from the customer side, with Mercado Pago wired up for live transactions.",
-      "Hardened against the OWASP Top 10: parameterized queries, server-side validation, CSRF protection on anything that changes state, least-privilege database roles.",
+      "JWT signing and verification written from scratch in TypeScript, no libraries, reproducing five flaws that reach production: alg=none bypass, HS256/RS256 key confusion, weak-secret brute force, kid header injection, and missing iss/aud/exp validation.",
+      "jwt-scan has token and live-endpoint modes with CI-friendly exit codes. The hardened mirror removes whole classes of bug at once: one allowed algorithm (RS256), a fixed kid registry with rotation, generic errors so nothing leaks through an oracle, scrypt for passwords.",
     ],
-    tags: ["Next.js", "PostgreSQL", "Mercado Pago", "RBAC"],
-    href: "https://materialeslabodega.com.co",
-    kind: "product",
+    tags: ["TypeScript", "Node.js", "OpenSSL", "Docker", "npm CLI"],
+    repo: "https://github.com/davidldv/jwtsecuritylab",
+    kind: "lab",
   },
   {
-    slug: "ghost-ai",
-    name: "Ghost AI",
-    tagline: "Architecture-first collaborative canvas",
+    slug: "llmseclab",
+    name: "LLM/RAG Security Lab",
+    tagline: "OWASP LLM Top 10, attack side and defense side",
     description:
-      "A real-time workspace where a team describes a system in plain English, an agent lays it onto a shared canvas, and the final graph exports as a Markdown spec you can hand to an implementation pipeline.",
+      "Two FastAPI services with the same RAG surface: one left vulnerable on purpose, one hardened. Every attack in the suite works on the first and fails on the second.",
     highlights: [
-      "Next.js, Liveblocks, React Flow and the Vercel AI SDK. The interesting part is the context-managed workflow that built it.",
+      "Five scenarios as a pytest attack suite: cross-tenant retrieval leak (confused deputy), indirect prompt injection through retrieved documents, vector-store poisoning via forged ingest metadata, excessive agency over a real MCP tool server, and stored XSS straight out of the model.",
+      "Excessive agency is stopped with a deny-by-default authorization hook on the host side, so every MCP tool call is authorized before dispatch. A deterministic mock LLM means CI can check that every attack fails against the secure API.",
     ],
-    tags: ["Next.js", "Liveblocks", "React Flow", "AI SDK"],
-    href: "https://ghost-aildv.vercel.app/",
-    kind: "research",
+    tags: ["Python", "FastAPI", "MCP", "RAG", "pytest"],
+    repo: "https://github.com/davidldv/llmseclab",
+    kind: "lab",
   },
 ];
 
 export const about = {
   eyebrow: "About",
-  heading: "Security engineer who still ships the feature.",
+  heading: "Full-stack engineer who writes the spec before the code.",
   paragraphs: [
-    "I'm an application security engineer from Pereira, Colombia, with a full-stack background: React and Next.js on the front, Node, TypeScript and PostgreSQL on the back. I spend more of my time than most engineers on code that works correctly and is still a security problem.",
-    "In practice that means threat modeling a feature before it ships and attacking my own work before anyone else can, with the OWASP Top 10 as the baseline. I practice on Hack The Box, TryHackMe and the PortSwigger Web Security Academy, since I find it hard to defend against an attack I have never run myself.",
-    "The part I'm most interested in right now is securing applications with an LLM inside them. Retrieval, tool calls and agents add attack surface that traditional web security does not cover, and most teams are shipping it anyway.",
+    "I'm a full-stack engineer from Pereira, Colombia: React and Next.js on the front, Node, TypeScript and PostgreSQL on the back. Most of my code is now written with coding agents, and what I have learned is that the output is only as good as the architecture and the spec the agent starts from. The prompt matters much less.",
+    "In practice that means writing the context files before the feature: what the system is, how it is laid out, what the standards are, where the work stands. Ghost AI was built that way from the first commit. authzscan turns the same idea around and sends agents through an existing codebase to evaluate it, with a benchmark that says how much to trust the result.",
+    "I came to this through application security and kept the habit. I threat model a feature before it ships and attack my own work before anyone else can, which matters more now that agents, retrieval and tool calls are part of the app.",
   ],
   facts: [
     { label: "Based in", value: "Pereira, Colombia" },
     { label: "Working hours", value: "LATAM · US · EU overlap" },
     { label: "Languages", value: "Spanish, English C1, German B1" },
-    { label: "Daily driver", value: "Arch Linux, Burp Suite, Claude Code" },
+    { label: "Daily driver", value: "Claude Code, Arch Linux, Burp Suite" },
   ],
 } as const;
 
 export const skills = [
   {
-    id: "appsec",
-    title: "Application security",
+    id: "ai",
+    title: "AI engineering",
     accent: true,
     items: [
-      "OWASP Top 10 (Web + LLM)",
-      "IDOR / BOLA & broken access control",
-      "Threat modeling (STRIDE)",
-      "OAuth 2.0 / OIDC",
-      "JWT cryptography (EdDSA, RS256)",
-      "RBAC & session hardening",
-      "CSRF / XSS / SQLi defense",
-      "Argon2id / scrypt",
-      "Secure code review",
-      "Secrets management",
+      "Spec-driven development with agents",
+      "Claude Code",
+      "Anthropic SDK",
+      "Vercel AI SDK",
+      "MCP servers",
+      "RAG pipelines",
+      "Structured outputs",
+      "Agent evals & benchmarks",
       "Prompt-injection defense",
+      "SSE streaming",
     ],
-  },
-  {
-    id: "offensive",
-    title: "Offensive & tooling",
-    accent: true,
-    items: ["Burp Suite", "OWASP ZAP", "nmap", "Wireshark", "sqlmap", "ffuf", "Nuclei", "Semgrep", "Trivy", "SARIF / code scanning", "Hydra"],
-  },
-  {
-    id: "ai",
-    title: "AI & LLM security",
-    items: ["Anthropic SDK", "MCP servers", "RAG pipelines", "LLM guardrails", "Agent evals & benchmarks", "SSE streaming"],
-  },
-  {
-    id: "backend",
-    title: "Backend",
-    items: ["Node.js", "Next.js (RSC, Server Actions)", "Express", "FastAPI", "Prisma", "PostgreSQL", "MongoDB", "Redis", "WebSockets", "Zod", "Jest"],
   },
   {
     id: "frontend",
     title: "Frontend",
-    items: ["React 19", "TypeScript", "Tailwind CSS", "GSAP", "D3", "Framer Motion", "Astro"],
+    accent: true,
+    items: ["React 19", "Next.js (App Router, RSC)", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP", "D3", "Astro"],
+  },
+  {
+    id: "backend",
+    title: "Backend",
+    accent: true,
+    items: ["Node.js", "Next.js (Server Actions, Route Handlers)", "Express", "FastAPI", "Prisma", "PostgreSQL", "MongoDB", "Redis", "WebSockets", "Zod", "Jest"],
+  },
+  {
+    id: "appsec",
+    title: "Application security",
+    items: ["OWASP Top 10 (Web + LLM)", "Broken access control / IDOR", "Threat modeling (STRIDE)", "OAuth 2.0 / OIDC", "JWT (EdDSA, RS256)", "RBAC & session hardening", "Secure code review"],
+  },
+  {
+    id: "offensive",
+    title: "Security tooling",
+    items: ["Burp Suite", "Semgrep", "Trivy", "SARIF / code scanning", "OWASP ZAP", "nmap"],
   },
   {
     id: "platform",
@@ -266,6 +268,14 @@ export const timeline: TimelineEntry[] = [
     kind: "shipped",
     description: "Five OWASP LLM Top 10 attacks as a pytest suite against a vulnerable/hardened FastAPI pair, including excessive agency over a live MCP server.",
     href: "https://github.com/davidldv/llmseclab",
+  },
+  {
+    date: "May 2026",
+    title: "Ghost AI",
+    org: "Product · Writeup",
+    kind: "shipped",
+    description: "Real-time architecture canvas on Next.js, Liveblocks and React Flow that exports the graph as a Markdown spec. Built with coding agents from four context files; the writeup covers the workflow.",
+    href: "/writeups/ghost-ai-architecture-first",
   },
   {
     date: "Apr 2026",
@@ -322,9 +332,9 @@ export const certs: Cert[] = [
 
 export const contact = {
   eyebrow: "Contact",
-  heading: "Let's find the bug before someone else does.",
+  heading: "Let's build the next one from a spec.",
   intro:
-    "Open to application security and security engineering roles, remote across US, EU and LATAM hours, or relocation. If your team ships fast and wants someone who attacks what they build, write to me.",
+    "Open to full-stack and AI engineering roles, remote across US, EU and LATAM hours, or relocation. If your team ships fast and builds with agents, or wants to start, write to me.",
   form: {
     name: "Name",
     email: "Email",

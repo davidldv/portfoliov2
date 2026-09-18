@@ -9,7 +9,7 @@ import { BenchmarkWaffle } from "@/components/ui/BenchmarkWaffle";
 import { cn } from "@/lib/utils";
 
 const KIND_LABEL: Record<Project["kind"], string> = {
-  tool: "Security tool",
+  tool: "Agent tool",
   lab: "Offense / defense lab",
   product: "Production system",
   research: "Research",
@@ -160,10 +160,10 @@ export function Work() {
           eyebrow="Work"
           heading={
             <>
-              Tools that attack, labs that prove it, <span className="serif-italic text-accent">products</span> that survived real users.
+              Products that survived real users, and the <span className="serif-italic text-accent">agents</span> that helped build them.
             </>
           }
-          intro="Every security claim on this page maps to a repository you can run. The labs ship a broken half and a fixed half; the scanners ship their own benchmark."
+          intro="Every claim on this page maps to a repository you can run or a site you can open. The scanner ships its own benchmark; the labs ship a broken half and a fixed half."
         />
 
         <Reveal stagger={0.12} className="grid gap-4 lg:grid-cols-2">

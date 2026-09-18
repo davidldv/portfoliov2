@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
-  keywords: ["application security", "appsec", "security engineer", "IDOR", "BOLA", "JWT", "LLM security", "Next.js", "TypeScript"],
+  keywords: ["full-stack engineer", "AI engineer", "coding agents", "Next.js", "TypeScript", "PostgreSQL", "Claude Code", "application security"],
   authors: [{ name: site.name, url: site.url }],
   creator: site.name,
   openGraph: {

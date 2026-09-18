@@ -80,10 +80,10 @@ export function Timeline() {
           eyebrow="Timeline"
           heading={
             <>
-              From shipping features to <span className="serif-italic text-accent">shipping exploits</span> against them.
+              From shipping features to shipping the <span className="serif-italic text-accent">specs</span> agents build from.
             </>
           }
-          intro="Work, study and the open-source releases that mark the pivot into security, newest first."
+          intro="Work, study and the open-source releases, newest first."
         />
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">

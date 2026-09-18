@@ -49,10 +49,10 @@ export function Skills() {
           eyebrow="Skills"
           heading={
             <>
-              Security first. The rest is how I <span className="serif-italic text-accent">ship</span> it.
+              Full-stack, with agents doing most of the <span className="serif-italic text-accent">typing</span>.
             </>
           }
-          intro="Application security and offensive tooling are the job. Backend, frontend and platform are what let me fix what I find instead of filing a ticket about it."
+          intro="AI engineering, frontend and backend are the job. Application security is the habit that keeps what the agents write from shipping with holes in it."
         />
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -65,7 +65,7 @@ export function Skills() {
                 data-skill-card=""
                 className={cn(
                   "flex flex-col gap-5 p-6 opacity-0",
-                  group.id === "appsec" && "md:col-span-2 lg:col-span-1 lg:row-span-2",
+                  group.id === "ai" && "md:col-span-2 lg:col-span-1 lg:row-span-2",
                   group.id === "platform" && "md:col-span-2 lg:col-span-3",
                 )}
               >
