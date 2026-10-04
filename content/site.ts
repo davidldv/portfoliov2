@@ -185,6 +185,7 @@ export const about = {
     { label: "Working hours", value: "LATAM · US · EU overlap" },
     { label: "Languages", value: "Spanish, English C1, German B1" },
     { label: "Daily driver", value: "Claude Code, Arch Linux, Burp Suite" },
+    { label: "Disclosure", value: "Credited: unauthenticated PII leak in rallly", href: "https://github.com/lukevella/rallly/pull/3247" },
   ],
 } as const;
 

@@ -30,7 +30,15 @@ export function About() {
               {about.facts.map((f) => (
                 <div key={f.label} className="grid grid-cols-[7rem_1fr] gap-4 py-3.5 text-sm">
                   <dt className="font-mono text-[0.72rem] uppercase tracking-[0.12em] text-fg-dim">{f.label}</dt>
-                  <dd className="text-fg">{f.value}</dd>
+                  <dd className="text-fg">
+                    {"href" in f ? (
+                      <a href={f.href} target="_blank" rel="noreferrer" className="underline decoration-border underline-offset-4 hover:decoration-fg">
+                        {f.value}
+                      </a>
+                    ) : (
+                      f.value
+                    )}
+                  </dd>
                 </div>
               ))}
             </dl>

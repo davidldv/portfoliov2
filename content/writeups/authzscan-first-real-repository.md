@@ -52,7 +52,9 @@ The budget ran out during phase 2, so phase 3 never made a single call. Every ca
 
 So I verified all eleven by hand. One real finding, one missing consistency check with no meaningful exploit, and nine false positives.
 
-The real finding is an unauthenticated disclosure of personal data. It is with the maintainer under a private advisory and I am not describing it until they have had a chance to fix it.
+The real finding was an unauthenticated disclosure of personal data. `polls.get` is a public tRPC procedure, and the poll id that every invite link carries was enough to call it and get back each scheduled invitee's real name and email address. Both privacy signals were ignored: `canManage` was computed and only returned as a boolean, and `hideParticipants` was selected and never read. The earlier CVE-2025-66027 fix had hardened `participants.list` and never reached this procedure.
+
+I reported it through a private advisory. Eight other researchers had found the same endpoint independently, and the maintainer fixed it in [rallly#3247](https://github.com/lukevella/rallly/pull/3247), crediting all of us.
 
 ## Why the false positives happened
 
