@@ -247,6 +247,13 @@ export type TimelineEntry = {
 
 export const timeline: TimelineEntry[] = [
   {
+    date: "Oct 2026 – now",
+    title: "Junior Full-Stack Engineer (Contract)",
+    org: "KitchenSync",
+    kind: "work",
+    description: "Full-stack contract role, starting October 13.",
+  },
+  {
     date: "Aug 2026",
     title: "authzscan on real code",
     org: "Writeup",
