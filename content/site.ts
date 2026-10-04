@@ -15,7 +15,7 @@ export const site = {
   resumeHref: "/David-Londono-AI-FullStack.pdf",
   description:
     "AI-native full-stack engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I build them with coding agents that work from a written architecture and spec.",
-  availability: "Open to remote full-stack & AI engineering roles · US / EU / LATAM",
+  availability: "Full-stack engineer at KitchenSync from Oct 2026 · always up for an AppSec conversation",
   languages: [
     { code: "ES", level: "Native" },
     { code: "EN", level: "C1" },
@@ -52,7 +52,7 @@ export const hero = {
   /** The four facts a recruiter needs in ten seconds, readable, right under the headline. */
   status: [
     ["AI-native full-stack", "Pereira, Colombia (UTC−5)"],
-    ["Remote US / EU / LATAM or relocation", "Available now"],
+    ["Full-stack engineer at KitchenSync", "From Oct 2026"],
   ],
   sub: "Ghost AI turns a plain-English description of a system into a shared canvas that exports as a Markdown spec. authzscan sends agents through an existing Next.js codebase to review its authorization logic and publishes its own accuracy. Both were built from a written architecture and spec, with agents doing most of the typing.",
   primaryCta: { label: "See the work", href: "#work" },
@@ -335,7 +335,7 @@ export const contact = {
   eyebrow: "Contact",
   heading: "Let's build the next one from a spec.",
   intro:
-    "Open to full-stack and AI engineering roles, remote across US, EU and LATAM hours, or relocation. If your team ships fast and builds with agents, or wants to start, write to me.",
+    "I'm joining KitchenSync as a full-stack engineer in October 2026, so I'm not looking for a new role. If you want to talk authorization bugs, agent tooling, or something you're building, write to me.",
   form: {
     name: "Name",
     email: "Email",
