@@ -10,7 +10,7 @@ export const site = {
   role: "AI-Native Full-Stack Engineer",
   location: "Pereira, Colombia",
   timezone: "America/Bogota",
-  email: "dlondon.dev@gmail.com",
+  email: "hello@davidlondon.dev",
   url: "https://davidlondon.dev",
   resumeHref: "/David-Londono-AI-FullStack.pdf",
   description:
