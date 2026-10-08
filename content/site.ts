@@ -26,7 +26,7 @@ export const site = {
 export const socials = [
   { label: "GitHub", href: "https://github.com/davidldv", icon: "github" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/davidldv/", icon: "linkedin" },
-  { label: "X", href: "https://x.com/yuvdxv", icon: "x" },
+  { label: "X", href: "https://x.com/nulodev", icon: "x" },
   { label: "Hack The Box", href: "https://app.hackthebox.com/users/3395439", icon: "box" },
   { label: "TryHackMe", href: "https://tryhackme.com/p/dlondon.dev", icon: "terminal" },
   { label: "Email", href: `mailto:${site.email}`, icon: "mail" },
