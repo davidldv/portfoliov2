@@ -101,7 +101,7 @@ export function Nav() {
               else window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="flex items-center gap-2.5 rounded-sm py-1 pl-2 pr-3 text-sm font-medium"
-            aria-label={`${site.name} — back to top`}
+            aria-label={`${site.name}, back to top`}
           >
             <Logo className="h-6 w-6" />
             <span className="hidden font-mono text-[0.8rem] tracking-tight text-fg sm:inline">{site.handle}</span>

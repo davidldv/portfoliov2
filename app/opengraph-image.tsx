@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { site } from "@/content/site";
 
-export const alt = `${site.name} — ${site.role}`;
+export const alt = `${site.name} | ${site.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default async function Image() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18, fontFamily: "Geist Mono", fontSize: 22, color: "#9a9ca6", letterSpacing: 4 }}>
           <div style={{ width: 40, height: 2, background: "#7cb1ff" }} />
-          AI-NATIVE FULL-STACK · BUILT WITH AGENTS
+          FULL-STACK ENGINEER · BUILT WITH AGENTS
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", fontSize: 68, lineHeight: 1.06, letterSpacing: -2.5 }}>

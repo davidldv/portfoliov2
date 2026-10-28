@@ -7,14 +7,14 @@ export const site = {
   name: "David Londoño",
   shortName: "David",
   handle: "davidldv",
-  role: "AI-Native Full-Stack Engineer",
+  role: "Full-Stack Engineer",
   location: "Pereira, Colombia",
   timezone: "America/Bogota",
   email: "hello@davidlondon.dev",
   url: "https://davidlondon.dev",
   resumeHref: "/David-Londono-AI-FullStack.pdf",
   description:
-    "AI-native full-stack engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I build them with coding agents that work from a written architecture and spec.",
+    "Full-stack engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I build them with coding agents that work from a written architecture and spec.",
   availability: "Full-stack engineer at KitchenSync from Oct 2026 · always up for an AppSec conversation",
   languages: [
     { code: "ES", level: "Native" },
@@ -48,12 +48,11 @@ export const hero = {
     { text: "and run the agents that", em: false },
     { text: "build them.", em: true },
   ],
-  /** The four facts a recruiter needs in ten seconds, readable, right under the headline. */
+  /** The facts a recruiter needs in ten seconds, readable, right under the headline. */
   status: [
-    ["AI-native full-stack", "Pereira, Colombia (UTC−5)"],
-    ["Full-stack engineer at KitchenSync", "From Oct 2026"],
+    ["Full-Stack Engineer at KitchenSync", "Since Oct 2026"],
+    ["Pereira, Colombia (UTC−5)"],
   ],
-  sub: "Ghost AI turns a plain-English description of a system into a shared canvas that exports as a Markdown spec. authzscan sends agents through an existing Next.js codebase to review its authorization logic and publishes its own accuracy. Both were built from a written architecture and spec, with agents doing most of the typing.",
   primaryCta: { label: "See the work", href: "#work" },
   secondaryCta: { label: "Resume", href: site.resumeHref },
   hud: [
@@ -248,7 +247,7 @@ export type TimelineEntry = {
 export const timeline: TimelineEntry[] = [
   {
     date: "Oct 2026 – now",
-    title: "AI Full Stack Engineer",
+    title: "Full-Stack Engineer",
     org: "KitchenSync · Remote",
     kind: "work",
     description:

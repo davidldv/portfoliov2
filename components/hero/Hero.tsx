@@ -99,10 +99,6 @@ export function Hero() {
               ))}
             </p>
 
-            <p data-fade className="max-w-xl text-base leading-relaxed text-fg-muted opacity-0 sm:text-[1.05rem]">
-              {hero.sub}
-            </p>
-
             <div data-fade className="flex flex-wrap items-center gap-3 opacity-0">
               <Magnetic>
                 <button type="button" onClick={() => scrollTo("work")} className="btn-primary h-11 px-6">
