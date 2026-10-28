@@ -156,7 +156,7 @@ export function Work() {
     <section id="work" className="relative z-10 bg-bg py-24 md:py-32">
       <div className="container-x flex flex-col gap-14">
         <SectionHeader
-          index="01"
+          index="02"
           eyebrow="Work"
           heading={
             <>

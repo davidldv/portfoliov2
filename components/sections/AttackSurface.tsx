@@ -8,7 +8,7 @@ export function AttackSurface() {
       <div className="bg-grid mask-fade-y pointer-events-none absolute inset-0 opacity-60" aria-hidden />
       <div className="container-x relative flex flex-col gap-14">
         <SectionHeader
-          index="02"
+          index="05"
           eyebrow="Attack surface"
           heading={
             <>

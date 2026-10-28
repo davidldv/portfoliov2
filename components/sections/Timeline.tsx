@@ -2,17 +2,15 @@
 
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Award, Briefcase, GraduationCap, Rocket } from "lucide-react";
+import { ArrowUpRight, Briefcase, GraduationCap } from "lucide-react";
 import { certs, timeline, type TimelineEntry } from "@/content/site";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
-const KIND: Record<TimelineEntry["kind"], { label: string; Icon: typeof Rocket; tone: string }> = {
-  shipped: { label: "Shipped", Icon: Rocket, tone: "text-accent" },
+const KIND: Record<TimelineEntry["kind"], { label: string; Icon: typeof Briefcase; tone: string }> = {
   work: { label: "Work", Icon: Briefcase, tone: "text-fg" },
   education: { label: "Education", Icon: GraduationCap, tone: "text-fg-muted" },
-  cert: { label: "Credential", Icon: Award, tone: "text-success" },
 };
 
 export function Timeline() {
@@ -76,14 +74,14 @@ export function Timeline() {
     <section ref={ref} id="timeline" className="relative z-10 border-t border-border bg-bg py-24 md:py-32">
       <div className="container-x flex flex-col gap-14">
         <SectionHeader
-          index="05"
-          eyebrow="Timeline"
+          index="01"
+          eyebrow="Experience"
           heading={
             <>
               From shipping features to shipping the <span className="serif-italic text-accent">specs</span> agents build from.
             </>
           }
-          intro="Work, study and the open-source releases, newest first."
+          intro="Work and study, newest first. The open-source releases are under Work."
         />
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-16">
@@ -165,7 +163,7 @@ export function Timeline() {
                 ))}
               </ul>
               <p className="text-[0.8rem] leading-relaxed text-fg-muted">
-                Practice on Hack The Box and TryHackMe, plus CTFs. The projects above are the other half of the argument.
+                Practice on Hack The Box and TryHackMe, plus CTFs. The projects below are the other half of the argument.
               </p>
             </div>
           </aside>

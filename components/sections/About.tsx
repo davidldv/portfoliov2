@@ -8,7 +8,7 @@ export function About() {
     <section id="about" className="relative z-10 border-t border-border bg-bg py-24 md:py-32">
       <div className="container-x grid gap-14 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-20">
         <div className="flex flex-col gap-10">
-          <SectionHeader index="03" eyebrow={about.eyebrow} heading={about.heading} />
+          <SectionHeader index="04" eyebrow={about.eyebrow} heading={about.heading} />
           <Reveal stagger={0.1} className="flex max-w-2xl flex-col gap-5 text-[1.02rem] leading-relaxed text-fg-muted sm:text-lg">
             {about.paragraphs.map((p, i) => (
               <p key={i} className={i === 0 ? "text-fg" : undefined}>

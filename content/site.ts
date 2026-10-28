@@ -33,11 +33,10 @@ export const socials = [
 ] as const;
 
 export const nav = [
+  { id: "timeline", label: "Experience" },
   { id: "work", label: "Work" },
-  { id: "attack-surface", label: "Attack surface" },
-  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
-  { id: "timeline", label: "Timeline" },
+  { id: "about", label: "About" },
   { id: "writing", label: "Writing" },
   { id: "contact", label: "Contact" },
 ] as const;
@@ -240,65 +239,20 @@ export type TimelineEntry = {
   date: string;
   title: string;
   org: string;
-  kind: "work" | "education" | "shipped" | "cert";
+  kind: "work" | "education";
   description: string;
   href?: string;
 };
 
+/** Work and study only: projects live in Work, credentials in the sidebar. */
 export const timeline: TimelineEntry[] = [
   {
     date: "Oct 2026 – now",
     title: "AI Full Stack Engineer",
-    org: "KitchenSync",
+    org: "KitchenSync · Remote",
     kind: "work",
-    description: "Building agent-driven solutions for the restaurant industry.",
-  },
-  {
-    date: "Aug 2026",
-    title: "authzscan on real code",
-    org: "Writeup",
-    kind: "shipped",
-    description: "Pointed the scanner at a real open-source repo after a 100% benchmark score. One genuine bug in eleven candidates. The gap turned out to be in the benchmark rather than the model.",
-    href: "/writeups/authzscan-first-real-repository",
-  },
-  {
-    date: "Jul 2026",
-    title: "authzscan v1",
-    org: "Open source",
-    kind: "shipped",
-    description: "Agent-driven IDOR/BOLA scanner for Next.js App Router with a seeded 16-bug benchmark and SARIF output.",
-    href: "https://github.com/davidldv/authzscan",
-  },
-  {
-    date: "Jun 2026",
-    title: "LLM/RAG Security Lab",
-    org: "Open source",
-    kind: "shipped",
-    description: "Five OWASP LLM Top 10 attacks as a pytest suite against a vulnerable/hardened FastAPI pair, including excessive agency over a live MCP server.",
-    href: "https://github.com/davidldv/llmseclab",
-  },
-  {
-    date: "May 2026",
-    title: "Ghost AI",
-    org: "Product · Writeup",
-    kind: "shipped",
-    description: "Real-time architecture canvas on Next.js, Liveblocks and React Flow that exports the graph as a Markdown spec. Built with coding agents from four context files; the writeup covers the workflow.",
-    href: "/writeups/ghost-ai-architecture-first",
-  },
-  {
-    date: "Apr 2026",
-    title: "JWT Security Lab & jwt-scan",
-    org: "Open source · npm",
-    kind: "shipped",
-    description: "From-scratch JWT sign/verify reproducing five production flaws, then shipped as an npm CLI scanner.",
-    href: "https://github.com/davidldv/jwtsecuritylab",
-  },
-  {
-    date: "2026",
-    title: "Google Professional Cybersecurity Certificate",
-    org: "Google · Coursera",
-    kind: "cert",
-    description: "Completed alongside every free lab in the PortSwigger Web Security Academy.",
+    description:
+      "KitchenSync builds Kit, a back-office platform for restaurants that covers accounting, payroll and accounts payable. I work across the TypeScript stack, from React front ends to Node.js services and PostgreSQL. Most of my work so far is third-party integrations: unifying point-of-sale providers behind one validated adapter layer, and moving background syncs onto a durable, idempotent job queue. I ship through small, CI-gated pull requests with safe schema migrations, and I use AI coding agents every day, scoping, reviewing and steering what they produce.",
   },
   {
     date: "Jul – Sep 2025",
@@ -342,7 +296,7 @@ export const contact = {
   eyebrow: "Contact",
   heading: "Let's build the next one from a spec.",
   intro:
-    "I'm joining KitchenSync as a full-stack engineer in October 2026, so I'm not looking for a new role. If you want to talk authorization bugs, agent tooling, or something you're building, write to me.",
+    "I'm a full-stack engineer at KitchenSync, so I'm not looking for a new role. If you want to talk authorization bugs, agent tooling, or something you're building, write to me.",
   form: {
     name: "Name",
     email: "Email",

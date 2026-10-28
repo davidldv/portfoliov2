@@ -45,7 +45,7 @@ export function Skills() {
     <section ref={ref} id="skills" className="relative z-10 border-t border-border bg-bg py-24 md:py-32">
       <div className="container-x flex flex-col gap-14">
         <SectionHeader
-          index="04"
+          index="03"
           eyebrow="Skills"
           heading={
             <>
