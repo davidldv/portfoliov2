@@ -15,7 +15,7 @@ export const site = {
   resumeHref: "/David-Londono-AI-FullStack.pdf",
   description:
     "Full-stack engineer. I ship production systems in TypeScript, Next.js and PostgreSQL, and I build them with coding agents that work from a written architecture and spec.",
-  availability: "Full-stack engineer at KitchenSync from Oct 2026 · always up for an AppSec conversation",
+  availability: "Full-stack engineer at KitchenSync · always up for an AppSec conversation",
   languages: [
     { code: "ES", level: "Native" },
     { code: "EN", level: "C1" },
@@ -50,7 +50,7 @@ export const hero = {
   ],
   /** The facts a recruiter needs in ten seconds, readable, right under the headline. */
   status: [
-    ["Full-Stack Engineer at KitchenSync", "Since Oct 2026"],
+    ["Full-Stack Engineer"],
     ["Pereira, Colombia (UTC−5)"],
   ],
   primaryCta: { label: "See the work", href: "#work" },
